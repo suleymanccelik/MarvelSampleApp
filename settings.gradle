@@ -1,0 +1,8 @@
+rootProject.name = "MarvelApp"
+include ':app'
+include ':data'
+include ':core'
+include ':ui-character-list'
+include ':ui-character-detail'
+include ':common-ui'
+include ':common-worker'

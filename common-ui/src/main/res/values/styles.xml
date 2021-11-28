@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Widget.App.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.BottomNavigationView</item>
+    </style>
+
+    <style name="ThemeOverlay.App.BottomNavigationView" parent="">
+        <item name="colorSurface">@color/toolbarBackgroundLight</item>
+    </style>
+
+    <style name="Widget.App.Toolbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="android:textAppearance">@style/Toolbar.TextAppearance</item>
+        <item name="titleTextAppearance">@style/Toolbar.TextAppearance</item>
+        <item name="android:background">@color/toolbarBackgroundLight</item>
+        <item name="colorControlNormal">@color/toolbarTextLight</item>
+    </style>
+
+    <style name="Toolbar.TextAppearance" parent="@style/TextAppearance.MaterialComponents.Headline6">
+        <item name="android:textColor">@color/toolbarTextLight</item>
+        <item name="android:textColorPrimary">@color/toolbarTextLight</item>
+    </style>
+
+    <style name="Widget.App.CardView" parent="Widget.MaterialComponents.CardView">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Card</item>
+    </style>
+
+    <style name="ThemeOverlay.App.Card" parent="">
+        <item name="colorSurface">@color/cardViewSurfaceLight</item>
+    </style>
+
+    <style name="ConnectionButtonStyle">
+        <item name="android:textAppearance">?attr/textAppearanceButton</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="SubmitButtonStyle">
+        <item name="android:textAppearance">?attr/textAppearanceButton</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+</resources>

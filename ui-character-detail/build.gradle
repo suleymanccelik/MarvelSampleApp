@@ -1,0 +1,64 @@
+import com.suleymancelik.marvelapp.buildsrc.Libs
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+kapt {
+    correctErrorTypes = true
+}
+
+android {
+    compileSdkVersion buildConfig.compileSdk
+
+    defaultConfig {
+        minSdkVersion buildConfig.minSdk
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+    buildFeatures{
+        viewBinding = true
+    }
+}
+
+dependencies {
+    implementation project(":core")
+    implementation project(":common-ui")
+    implementation project(":data")
+    implementation project(":common-worker")
+
+    implementation Libs.Kotlin.stdlib
+    implementation Libs.Kotlin.reflect
+    implementation Libs.AndroidX.appcompat
+    implementation Libs.AndroidX.constraintlayout
+    implementation Libs.AndroidX.coreKtx
+
+    implementation Libs.AndroidX.Fragment.fragment
+    implementation Libs.AndroidX.Fragment.fragmentKtx
+    implementation Libs.AndroidX.Navigation.fragment
+
+    implementation Libs.Google.material
+    implementation Libs.AndroidX.recyclerview
+    implementation Libs.Coil.coil
+
+    implementation Libs.Dagger.dagger
+    implementation Libs.Dagger.androidSupport
+    kapt Libs.Dagger.compiler
+    kapt Libs.Dagger.androidProcessor
+
+    implementation Libs.mvRx
+    implementation Libs.ePoxy.epoxy
+    kapt Libs.ePoxy.epoxyProcessor
+
+    testImplementation Libs.junit
+    androidTestImplementation Libs.AndroidX.Test.junitX
+    androidTestImplementation Libs.AndroidX.Test.espressoCore
+}
+

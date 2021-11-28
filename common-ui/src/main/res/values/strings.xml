@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Marvel App</string>
+
+    <string name="title_character_list">Character List</string>
+
+    <string name="connection_error_title">Connection Error</string>
+    <string name="connection_error_info">There is an error in your internet connection.</string>
+    <string name="connection_error_button">TRY AGAIN</string>
+    <string name="service_error_title">Service Error</string>
+    <string name="service_error_info">The service is not accessible due to a technical problem.</string>
+
+</resources>

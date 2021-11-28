@@ -1,0 +1,80 @@
+import com.suleymancelik.marvelapp.buildsrc.Libs
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+kapt {
+    correctErrorTypes = true
+    useBuildCache = true
+}
+
+android {
+    compileSdkVersion 31
+    buildToolsVersion "31.0.0"
+
+    defaultConfig {
+        applicationId "com.suleymancelik.marvelapp"
+        minSdkVersion 21
+        targetSdkVersion 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "MARVEL_PUBLIC_KEY", public_key)
+        buildConfigField("String", "MARVEL_HASH", hash)
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding = true
+    }
+}
+
+dependencies {
+    def multiDex = "2.0.1"
+    implementation "androidx.multidex:multidex:$multiDex"
+
+    implementation project(":core")
+    implementation project(":data")
+    implementation project(":common-ui")
+    implementation project(":common-worker")
+    implementation project(":ui-character-list")
+
+    implementation Libs.Kotlin.stdlib
+
+    implementation Libs.AndroidX.appcompat
+    implementation Libs.AndroidX.recyclerview
+    implementation Libs.AndroidX.constraintlayout
+    implementation Libs.AndroidX.coreKtx
+    implementation Libs.AndroidX.Fragment.fragment
+    implementation Libs.AndroidX.Fragment.fragmentKtx
+    implementation Libs.AndroidX.Navigation.fragment
+    implementation Libs.AndroidX.Navigation.ui
+    implementation Libs.AndroidX.Lifecycle.viewmodel
+
+    implementation Libs.Google.material
+
+    implementation Libs.mvRx
+
+    implementation Libs.Dagger.dagger
+    implementation Libs.Dagger.androidSupport
+    kapt Libs.Dagger.compiler
+    kapt Libs.Dagger.androidProcessor
+
+    testImplementation Libs.junit
+    androidTestImplementation Libs.AndroidX.Test.junitX
+    androidTestImplementation Libs.AndroidX.Test.espressoCore
+}

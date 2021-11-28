@@ -1,0 +1,53 @@
+import com.suleymancelik.marvelapp.buildsrc.Libs
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion buildConfig.compileSdk
+
+    defaultConfig {
+        minSdkVersion buildConfig.minSdk
+
+        buildConfigField("String", "MARVEL_PUBLIC_KEY", public_key)
+        buildConfigField("String", "MARVEL_HASH", hash)
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation Libs.Kotlin.stdlib
+    implementation Libs.AndroidX.appcompat
+    implementation Libs.AndroidX.constraintlayout
+    implementation Libs.AndroidX.coreKtx
+    implementation Libs.AndroidX.Lifecycle.viewmodel
+
+    implementation Libs.mvRx
+    implementation Libs.Kotlin.reflect
+
+
+    implementation Libs.Dagger.dagger
+    implementation Libs.Dagger.androidSupport
+    kapt Libs.Dagger.compiler
+    kapt Libs.Dagger.androidProcessor
+
+    api Libs.Retrofit.retrofit
+    api Libs.Retrofit.gsonConverter
+    api Libs.Retrofit.moshiConverter
+    api Libs.Retrofit.retrofit_rxjava_adapter
+    api Libs.OkHttp.loggingInterceptor
+
+    api Libs.timber
+    
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1"
+
+    testImplementation Libs.junit
+    androidTestImplementation Libs.AndroidX.Test.junitX
+    androidTestImplementation Libs.AndroidX.Test.espressoCore
+}
+
